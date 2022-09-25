@@ -1,38 +1,46 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-container {
+  max-width: 550px;
+  display: block;
+  margin: 0 auto;
+  border: solid grey 1px;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.input-form {
+  margin-right: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.current-data {
+  line-height: 0.1;
+  color: grey;
 }
 
-.App-link {
-  color: #61dafb;
+.Temperature {
+  font-size: 48px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.current-temperature {
+  display: block;
+  position: relative;
+  margin-left: -15px;
+}
+
+.metrics {
+  font-size: 13px;
+  vertical-align: 25px;
+}
+
+.weather-forecast {
+  margin-right: 15px;
+}
+
+.day-container {
+  flex-wrap: wrap;
 }
