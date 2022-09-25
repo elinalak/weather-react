@@ -162,7 +162,11 @@ export default function Form(props) {
           <WeatherForecast />
         </div>
         <footer>
-          <a href="https://github.com/elinalak" target={"_blank"}>
+          <a
+            href="https://github.com/elinalak/weather-react"
+            target={"_blank"}
+            rel="noreferrer"
+          >
             Open-source
           </a>{" "}
           code by Viktoriia Lakida
@@ -202,8 +206,9 @@ export default function Form(props) {
           {" "}
           <a
             className="text-decoration-none"
-            href="https://github.com/elinalak"
+            href="https://github.com/elinalak/weather-react"
             target={"_blank"}
+            rel="noreferrer"
           >
             Open-source
           </a>{" "}
