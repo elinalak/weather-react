@@ -73,7 +73,7 @@ export default function Form(props) {
               {weather.city}, {weather.country}{" "}
             </h5>
             <div>{setDate()}</div>
-            <p>{weather.description}</p>
+            <p className="description">{weather.description}</p>
           </div>
         </div>
       </div>

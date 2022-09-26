@@ -11,6 +11,15 @@
   padding: 20px;
   margin-top: 30px;
   border-radius: 8px;
+  background: radial-gradient(
+    253px at 12.6% 77.9%,
+    rgb(221, 255, 214) 0.3%,
+    rgb(214, 254, 254) 90.5%
+  );
+}
+
+.description::first-letter {
+  text-transform: uppercase;
 }
 
 .input-form {
