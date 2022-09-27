@@ -89,8 +89,18 @@ export default function Form(props) {
               <img src={weather.icon} alt={weather.description} />
             </div>
             <div className="col-sm-6 current-temperature">
-              <span className="Temperature">{weather.temperature}</span>{" "}
-              <span className="metrics">°C|°F</span>
+              <span className="Temperature" id="temperature">
+                {weather.temperature}
+              </span>{" "}
+              <span className="metrics">
+                <a href="/" id="celsius-link" className="active">
+                  °C
+                </a>
+                |{" "}
+                <a href="/" id="farenheit-link">
+                  °F
+                </a>
+              </span>
             </div>
           </div>
         </div>
