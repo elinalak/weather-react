@@ -161,6 +161,7 @@ export default function Form(props) {
           <CurrentWeather />
           <WeatherForecast />
         </div>
+
         <footer>
           <a
             href="https://github.com/elinalak/weather-react"
