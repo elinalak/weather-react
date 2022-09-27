@@ -93,11 +93,15 @@ export default function Form(props) {
                 {weather.temperature}
               </span>{" "}
               <span className="metrics">
-                <a href="/" id="celsius-link" className="active">
+                <a href="/" id="celsius-link" className="text-decoration-none">
                   °C
                 </a>
                 |{" "}
-                <a href="/" id="farenheit-link">
+                <a
+                  href="/"
+                  id="farenheit-link"
+                  className="text-decoration-none"
+                >
                   °F
                 </a>
               </span>
