@@ -7,13 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 export default function Main() {
   let [city, setCity] = useState("");
-  let [weather, setWeather] = useState({});
-  let [loaded, setLoaded] = useState(false);
-
-  function changeCity(event) {
-    event.preventDefault();
-    setCity(event.target.value);
-  }
+  let [weather, setWeather] = useState({ ready: false });
 
   function CurrentData() {
     return (
@@ -66,9 +60,15 @@ export default function Main() {
       </div>
     );
   }
+  function handleSubmit(event) {
+    event.preventDefault();
+    handleChange();
+  }
+  function handleChangeCity(event) {
+    setCity(event.target.value);
+  }
 
   function handleChange(event) {
-    event.preventDefault();
     let keyAPI = `e9f5a6b09cfb46c92f0a8f305e599284`;
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city
       .trim()
@@ -78,7 +78,6 @@ export default function Main() {
   }
 
   function showWeather(response) {
-    setLoaded(true);
     setWeather({
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
@@ -91,16 +90,17 @@ export default function Main() {
     console.log(`City is ${weather.city}`);
   }
 
-  if (loaded)
+  if (weather.ready)
     return (
       <div>
         <div className="main-container">
-          <form className="row" onSubmit={handleChange}>
+          <form className="row" onSubmit={handleSubmit}>
             <input
               type="search"
               className="col-sm-8 input-form text-capitalize"
               placeholder="Type a city"
-              onChange={changeCity}
+              autoFocus="on"
+              onChange={handleChangeCity}
             />
             <input
               type="submit"
@@ -115,35 +115,38 @@ export default function Main() {
         </div>
       </div>
     );
-  else
-    return (
-      <div>
-        <div className="main-container">
-          <form className="row" onSubmit={handleChange}>
-            <input
-              type="search"
-              className="col-sm-8 input-form text-capitalize"
-              placeholder="Type a city"
-              onChange={changeCity}
-            />
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary col-sm-3"
-            />
-          </form>
-          <div className="weather-local">
-            <h1 className="mt-3">Weather checker</h1>
-            <h6>Do you know where your umbrella is? ⛱</h6>
-            <HashLoader
-              className="d-block m-auto mt-3"
-              size={20}
-              thickness={100}
-              speed={100}
-              color="lightblue"
-            />
-          </div>
+  else handleChange((city = "Krakow"));
+  return (
+    <div>
+      <div className="main-container">
+        <form className="row" onSubmit={handleChange}>
+          <input
+            type="search"
+            className="col-sm-8 input-form text-capitalize"
+            placeholder="Type a city"
+            autoFocus="on"
+            onChange={handleChangeCity}
+          />
+          <input
+            type="submit"
+            value="Search"
+            className="btn btn-primary col-sm-3"
+          />
+        </form>
+        <div className="weather-local">
+          <CurrentData />
+          <CurrentWeather />
+          <h1 className="mt-3">Weather checker</h1>
+          <h6>Try to input a city name correctly ⛱</h6>
+          <HashLoader
+            className="d-block m-auto mt-3"
+            size={20}
+            thickness={100}
+            speed={100}
+            color="lightblue"
+          />
         </div>
       </div>
-    );
+    </div>
+  );
 }
