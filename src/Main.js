@@ -115,38 +115,36 @@ export default function Main() {
         </div>
       </div>
     );
-  else handleChange((city = "Krakow"));
-  return (
-    <div>
-      <div className="main-container">
-        <form className="row" onSubmit={handleChange}>
-          <input
-            type="search"
-            className="col-sm-8 input-form text-capitalize"
-            placeholder="Type a city"
-            autoFocus="on"
-            onChange={handleChangeCity}
-          />
-          <input
-            type="submit"
-            value="Search"
-            className="btn btn-primary col-sm-3"
-          />
-        </form>
-        <div className="weather-local">
-          <CurrentData />
-          <CurrentWeather />
-          <h1 className="mt-3">Weather checker</h1>
-          <h6>Try to input a city name correctly ⛱</h6>
-          <HashLoader
-            className="d-block m-auto mt-3"
-            size={20}
-            thickness={100}
-            speed={100}
-            color="lightblue"
-          />
+  else
+    return (
+      <div>
+        <div className="main-container">
+          <form className="row" onSubmit={handleChange}>
+            <input
+              type="search"
+              className="col-sm-8 input-form text-capitalize"
+              placeholder="Type a city"
+              autoFocus="on"
+              onChange={handleChangeCity}
+            />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary col-sm-3"
+            />
+          </form>
+          <div className="weather-local">
+            <h1 className="mt-3">Weather checker</h1>
+            <h6>Try to input a city name correctly ⛱</h6>
+            <HashLoader
+              className="d-block m-auto mt-3"
+              size={20}
+              thickness={100}
+              speed={100}
+              color="lightblue"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
