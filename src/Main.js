@@ -5,6 +5,7 @@ import CurrentWeather from "./CurrentWeather";
 import CurrentData from "./CurrentData";
 import WeatherForecast from "./WeatherForecast";
 import Form from "./Form";
+import Footer from "./Footer";
 
 export default function Main(props) {
   let [city, setCity] = useState("");
@@ -50,17 +51,7 @@ export default function Main(props) {
           <CurrentWeather weather={weather} />
           <WeatherForecast />
         </div>
-
-        <footer>
-          <a
-            href="https://github.com/elinalak/weather-react"
-            target={"_blank"}
-            rel="noreferrer"
-          >
-            Open-source
-          </a>{" "}
-          code by Viktoriia Lakida
-        </footer>
+        <Footer />
       </div>
     );
   else
@@ -80,18 +71,7 @@ export default function Main(props) {
             />
           </div>
         </div>
-        <footer>
-          {" "}
-          <a
-            className="text-decoration-none"
-            href="https://github.com/elinalak/weather-react"
-            target={"_blank"}
-            rel="noreferrer"
-          >
-            Open-source
-          </a>{" "}
-          code by Viktoriia Lakida
-        </footer>
+        <Footer />
       </div>
     );
 }
