@@ -3,7 +3,6 @@ import axios from "axios";
 import { HashLoader } from "react-spinners";
 import SetDate from "./SetDate";
 import WeatherForecast from "./WeatherForecast";
-import Footer from "./Footer";
 
 export default function Main() {
   let [city, setCity] = useState("");
@@ -113,7 +112,6 @@ export default function Main() {
           <CurrentWeather />
           <WeatherForecast />
         </div>
-        <Footer />
       </div>
     );
   else
@@ -145,7 +143,6 @@ export default function Main() {
             />
           </div>
         </div>
-        <Footer />
       </div>
     );
 }
