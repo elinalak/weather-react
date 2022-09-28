@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { HashLoader } from "react-spinners";
 import CurrentWeather from "./CurrentWeather";
-import SetDate from "./SetDate";
+import CurrentData from "./CurrentData";
 import WeatherForecast from "./WeatherForecast";
+import Form from "./Form";
 
 export default function Main(props) {
   let [city, setCity] = useState("");
@@ -39,41 +40,13 @@ export default function Main(props) {
     console.log(`City is ${weather.city}`);
   }
 
-  function CurrentData() {
-    return (
-      <div>
-        <div className="row current-data">
-          <div className="col-sm-6 d-block text-start mt-3">
-            <h5>
-              {weather.city}, {weather.country}{" "}
-            </h5>
-            <div>{SetDate()}</div>
-            <p className="description">{weather.description}</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   if (loaded)
     return (
       <div>
         <div className="main-container">
-          <form className="row" onSubmit={handleChange}>
-            <input
-              type="search"
-              className="col-sm-8 input-form text-capitalize"
-              placeholder="Type a city"
-              onChange={changeCity}
-            />
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary col-sm-3"
-            />
-          </form>
+          <Form handleChange={handleChange} changeCity={changeCity} />
           <div className="weather-local"></div>
-          <CurrentData />
+          <CurrentData weather={weather} />
           <CurrentWeather weather={weather} />
           <WeatherForecast />
         </div>
@@ -94,19 +67,7 @@ export default function Main(props) {
     return (
       <div>
         <div className="main-container">
-          <form className="row" onSubmit={handleChange}>
-            <input
-              type="search"
-              className="col-sm-8 input-form"
-              placeholder="Type a city"
-              onChange={changeCity}
-            />
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary col-sm-3"
-            />
-          </form>
+          <Form />
           <div className="weather-local">
             <h1 className="mt-3">Weather checker</h1>
             <h6>Do you know where your umbrella is? ⛱</h6>
