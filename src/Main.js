@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { HashLoader } from "react-spinners";
-import CurrentWeather from "./CurrentWeather";
-import CurrentData from "./CurrentData";
+import SetDate from "./SetDate";
 import WeatherForecast from "./WeatherForecast";
-import Form from "./Form";
 import Footer from "./Footer";
 
-export default function Main(props) {
+export default function Main() {
   let [city, setCity] = useState("");
   let [weather, setWeather] = useState({});
   let [loaded, setLoaded] = useState(false);
@@ -15,6 +13,58 @@ export default function Main(props) {
   function changeCity(event) {
     event.preventDefault();
     setCity(event.target.value);
+  }
+
+  function CurrentData() {
+    return (
+      <div>
+        <div className="row current-data">
+          <div className="col-sm-6 d-block text-start mt-3">
+            <h5>
+              {weather.city}, {weather.country}{" "}
+            </h5>
+            <div>{SetDate()}</div>
+            <p className="description">{weather.description}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function CurrentWeather() {
+    return (
+      <div className="row current-weather">
+        <div className="col-sm-6">
+          <div className="row">
+            <div className="col-sm-6 current-icon img-fluid ">
+              <img src={weather.icon} alt={weather.description} />
+            </div>
+            <div className="col-sm-6 current-temperature">
+              <span className="Temperature" id="temperature">
+                {weather.temperature}
+              </span>{" "}
+              <span className="metrics">
+                <a href="/" id="celsius-link" className="text-decoration-none">
+                  °C
+                </a>
+                |{" "}
+                <a
+                  href="/"
+                  id="farenheit-link"
+                  className="text-decoration-none"
+                >
+                  °F
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-6 current-data mt-4">
+          <p>Humidity: {weather.humidity}%</p>
+          <p>Wind: {weather.wind} km/h</p>
+        </div>
+      </div>
+    );
   }
 
   function handleChange(event) {
@@ -45,10 +95,22 @@ export default function Main(props) {
     return (
       <div>
         <div className="main-container">
-          <Form handleChange={handleChange} changeCity={changeCity} />
+          <form className="row" onSubmit={handleChange}>
+            <input
+              type="search"
+              className="col-sm-8 input-form text-capitalize"
+              placeholder="Type a city"
+              onChange={changeCity}
+            />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary col-sm-3"
+            />
+          </form>
           <div className="weather-local"></div>
-          <CurrentData weather={weather} />
-          <CurrentWeather weather={weather} />
+          <CurrentData />
+          <CurrentWeather />
           <WeatherForecast />
         </div>
         <Footer />
@@ -58,7 +120,19 @@ export default function Main(props) {
     return (
       <div>
         <div className="main-container">
-          <Form />
+          <form className="row" onSubmit={handleChange}>
+            <input
+              type="search"
+              className="col-sm-8 input-form text-capitalize"
+              placeholder="Type a city"
+              onChange={changeCity}
+            />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary col-sm-3"
+            />
+          </form>
           <div className="weather-local">
             <h1 className="mt-3">Weather checker</h1>
             <h6>Do you know where your umbrella is? ⛱</h6>
