@@ -3,6 +3,7 @@ import axios from "axios";
 import { HashLoader } from "react-spinners";
 import SetDate from "./SetDate";
 import WeatherForecast from "./WeatherForecast";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default function Main() {
   let [city, setCity] = useState("");
