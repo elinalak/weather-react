@@ -5,7 +5,7 @@ import Footer from "./Footer";
 function App() {
   return (
     <div className="App">
-      <Main defaultCity="Krakow" />
+      <Main city="Krakow" />
       <Footer />
     </div>
   );
