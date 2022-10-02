@@ -1,6 +1,7 @@
 import React from "react";
 import SetDate from "./SetDate";
 import WeatherIcons from "./WeatherIcons";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -19,27 +20,9 @@ export default function WeatherInfo(props) {
         <div className="col-sm-6">
           <div className="row">
             <div className="col-sm-6 current-icon">
-              {/* <img src={props.weather.icon} alt={props.weather.description} /> */}
               <WeatherIcons code={props.weather.icon} />
             </div>
-            <div className="col-sm-6 current-temperature">
-              <span className="Temperature" id="temperature">
-                {props.weather.temperature}
-              </span>{" "}
-              <span className="metrics">
-                <a href="/" id="celsius-link" className="text-decoration-none">
-                  °C
-                </a>
-                |{" "}
-                <a
-                  href="/"
-                  id="farenheit-link"
-                  className="text-decoration-none"
-                >
-                  °F
-                </a>
-              </span>
-            </div>
+            <WeatherTemperature celsius={props.weather.temperature} />
           </div>
         </div>
         <div className="col-sm-6 current-data mt-4">
