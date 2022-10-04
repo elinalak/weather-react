@@ -27,8 +27,8 @@ export default function DayForecast(props) {
         <p>{day()}</p>
         <WeatherIcons code={props.data.weather[0].icon} />
         <p className="mt-3">
-          <span className="font-weight-bold">{showMaxtemp()}°</span>{" "}
-          {showMintemp()}°
+          <span className="temperature">{showMaxtemp()}°</span>{" "}
+          <span className="temperature min">{showMintemp()}°</span>
         </p>
       </div>
     </div>

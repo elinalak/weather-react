@@ -53,3 +53,7 @@
 .day-container {
   flex-wrap: wrap;
 }
+
+.min {
+  opacity: 0.6;
+}
