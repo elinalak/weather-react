@@ -25,7 +25,7 @@ export default function WeatherTemperature(props) {
           {props.celsius}
         </span>{" "}
         <span className="metrics">
-          <span>°C</span>|{" "}
+          <span>°C</span> |{" "}
           <a
             href="/"
             id="farenheit-link"
