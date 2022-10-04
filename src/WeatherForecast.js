@@ -21,6 +21,7 @@ export default function WeatherForecast(props) {
   if (loaded)
     return (
       <div className="d-inline-flex day-container justify-content-center">
+        {/* eslint-disable */}
         {forecast.map(function (DailyForecast, index) {
           if (index < 5)
             return (
