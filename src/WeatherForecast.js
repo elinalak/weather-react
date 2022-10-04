@@ -15,7 +15,14 @@ export default function WeatherForecast(props) {
   if (loaded)
     return (
       <div className="d-inline-flex day-container justify-content-center">
-        <DayForecast time="15:00" data={forecast[0]} />
+        {forecast.map(function (DailyForecast, index) {
+          if (index < 5)
+            return (
+              <div key={index}>
+                <DayForecast data={DailyForecast} />
+              </div>
+            );
+        })}
       </div>
     );
   else {
