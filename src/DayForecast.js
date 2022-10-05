@@ -83,7 +83,7 @@ export default function DayForecast(props) {
                 d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z"
               />
             </svg>
-            : {props.data.dew_point}
+            : {Math.round(props.data.dew_point)}°C
           </p>
           <p>
             <svg
