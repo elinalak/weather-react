@@ -6,6 +6,7 @@ export default function WeatherTemperature(props) {
   function showFarenheit(event) {
     event.preventDefault();
     setMetric("farenheit");
+    alert("Convert only current temperature");
   }
 
   function showCelsius(event) {
@@ -15,7 +16,6 @@ export default function WeatherTemperature(props) {
 
   function calcFarenheit() {
     let farenheit = Math.round((props.celsius * 9) / 5 + 32);
-    alert("Convert only current temperature");
     return farenheit;
   }
 
