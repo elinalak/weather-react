@@ -6,16 +6,30 @@ export default function WeatherTemperature(props) {
   function showFarenheit(event) {
     event.preventDefault();
     setMetric("farenheit");
-    alert("Convert only current temperature");
+    let item = document.querySelectorAll(".temperature");
+    console.log(`For faren ${item[0].innerHTML}`);
+    item.forEach((element) => {
+      let faren = (element.innerHTML * 9) / 5 + 32;
+      console.log(faren);
+      element.innerHTML = Math.round(`${faren}`);
+    });
   }
 
   function showCelsius(event) {
     event.preventDefault();
     setMetric("celsius");
+    let item = document.querySelectorAll(".temperature");
+    console.log(`For faren ${item[0].innerHTML}`);
+    item.forEach((el) => {
+      let cels = ((el.innerHTML - 32) * 5) / 9;
+      console.log(cels);
+      el.innerHTML = Math.round(`${cels}`);
+    });
   }
 
   function calcFarenheit() {
     let farenheit = Math.round((props.celsius * 9) / 5 + 32);
+
     return farenheit;
   }
 
