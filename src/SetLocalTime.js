@@ -10,5 +10,5 @@ export default function SetLocalTime(props) {
   let min = data.getMinutes();
   if (min < 10) min = `0${min}`;
   let time = `${hh}:${min}`;
-  return time;
+  return <span>{time}</span>;
 }
