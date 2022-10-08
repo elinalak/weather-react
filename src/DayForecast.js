@@ -24,7 +24,10 @@ export default function DayForecast(props) {
 
   function sunRise() {
     let data = new Date(props.data.sunrise * 1000);
-    let hh = data.getHours();
+    let dataNew = data.getUTCHours() + props.timezone / 3600;
+    if (dataNew >= 24) dataNew = dataNew - 24;
+    if (dataNew < 0) dataNew = dataNew + 24;
+    let hh = dataNew;
     if (hh < 10) hh = `0${hh}`;
     let min = data.getMinutes();
     if (min < 10) min = `0${min}`;
@@ -34,7 +37,11 @@ export default function DayForecast(props) {
 
   function sunSet() {
     let data = new Date(props.data.sunset * 1000);
-    let hh = data.getHours();
+    let dataNew = data.getUTCHours() + props.timezone / 3600;
+    if (dataNew >= 24) dataNew = dataNew - 24;
+    if (dataNew < 0) dataNew = dataNew + 24;
+    let hh = dataNew;
+
     if (hh < 10) hh = `0${hh}`;
     let min = data.getMinutes();
     if (min < 10) min = `0${min}`;

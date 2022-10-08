@@ -37,7 +37,7 @@ export default function Main(props) {
       icon: response.data.weather[0].icon,
       country: response.data.sys.country,
       city: response.data.name,
-      time: response.data.timezone,
+      timezone: response.data.timezone,
     });
     console.log(`City is ${weather.city}`);
   }
