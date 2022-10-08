@@ -37,6 +37,7 @@ export default function Main(props) {
       icon: response.data.weather[0].icon,
       country: response.data.sys.country,
       city: response.data.name,
+      time: response.data.timezone,
     });
     console.log(`City is ${weather.city}`);
   }
@@ -56,7 +57,7 @@ export default function Main(props) {
             <input
               type="submit"
               value="Search"
-              className="btn btn-primary col-sm-3"
+              className="btn btn-success col-sm-3"
             />
           </form>
           <div className="weather-local"></div>
@@ -80,7 +81,7 @@ export default function Main(props) {
           <input
             type="submit"
             value="Search"
-            className="btn btn-primary col-sm-3"
+            className="btn btn-success col-sm-3"
           />
         </form>
         <h1 className="mt-3">Weather checker</h1>

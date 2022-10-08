@@ -7,14 +7,15 @@
   max-width: 550px;
   display: block;
   margin: 0 auto;
-  border: solid grey 1px;
+  border: solid rgb(100, 163, 111) 1px;
   padding: 20px;
   margin-top: 30px;
   border-radius: 8px;
-  background: radial-gradient(
-    253px at 12.6% 77.9%,
-    rgb(221, 255, 214) 0.3%,
-    rgb(214, 254, 254) 90.5%
+  background: linear-gradient(
+    109.6deg,
+    rgb(251, 250, 225) 11.2%,
+    rgb(206, 240, 185) 47.5%,
+    rgb(100, 163, 111) 100.2%
   );
 }
 
