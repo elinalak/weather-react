@@ -1,6 +1,7 @@
 import React from "react";
 import WeatherIcons from "./WeatherIcons";
 import "bootstrap/dist/css/bootstrap.css";
+import SetLocalTime from "./SetLocalTime";
 
 export default function DayForecast(props) {
   function showMaxtemp() {
@@ -22,33 +23,6 @@ export default function DayForecast(props) {
     return days[day];
   }
 
-  function sunRise() {
-    let data = new Date(props.data.sunrise * 1000);
-    let dataNew = data.getUTCHours() + props.timezone / 3600;
-    if (dataNew >= 24) dataNew = dataNew - 24;
-    if (dataNew < 0) dataNew = dataNew + 24;
-    let hh = dataNew;
-    if (hh < 10) hh = `0${hh}`;
-    let min = data.getMinutes();
-    if (min < 10) min = `0${min}`;
-    let time = `${hh}:${min}`;
-    return time;
-  }
-
-  function sunSet() {
-    let data = new Date(props.data.sunset * 1000);
-    let dataNew = data.getUTCHours() + props.timezone / 3600;
-    if (dataNew >= 24) dataNew = dataNew - 24;
-    if (dataNew < 0) dataNew = dataNew + 24;
-    let hh = dataNew;
-
-    if (hh < 10) hh = `0${hh}`;
-    let min = data.getMinutes();
-    if (min < 10) min = `0${min}`;
-    let time = `${hh}:${min}`;
-    return time;
-  }
-
   return (
     <div className="mt-3 ">
       <div className="col current-data weather-forecast container-fluid">
@@ -64,7 +38,8 @@ export default function DayForecast(props) {
           >
             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
           </svg>
-          :{sunRise()}
+          :
+          <SetLocalTime info={props.data.sunrise} timezone={props.timezone} />
         </p>
         <WeatherIcons code={props.data.weather[0].icon} />
         <p className="mt-3">
@@ -107,7 +82,7 @@ export default function DayForecast(props) {
             >
               <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM11.709 11.5a4 4 0 1 0-7.418 0H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
             </svg>
-            :{sunSet()}
+            :<SetLocalTime info={props.data.sunset} timezone={props.timezone} />
           </p>
         </div>
       </div>
