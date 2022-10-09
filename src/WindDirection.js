@@ -20,9 +20,22 @@ export default function WindDirection(props) {
     { name: "N/NW", dig: [330, 340] },
   ];
   console.log(windDirection[0].name);
+  let wind = Math.round((props.direction / 10) * 10);
+  let direction = "no";
+
+  windDirection.forEach((element) => {
+    element.dig.forEach((dir) => {
+      if (wind === dir) {
+        console.log(element.name);
+        direction = element.name;
+        console.log(direction);
+      }
+    });
+  });
+
   return (
     <p>
-      Wind: {props.wind} km/h, {props.direction}
+      Wind: {props.wind} km/h, {direction}
     </p>
   );
 }
