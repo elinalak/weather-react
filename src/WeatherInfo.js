@@ -2,6 +2,7 @@ import React from "react";
 import SetDate from "./SetDate";
 import WeatherIcons from "./WeatherIcons";
 import WeatherTemperature from "./WeatherTemperature";
+import WindDirection from "./WindDirection";
 
 export default function WeatherInfo(props) {
   return (
@@ -27,7 +28,10 @@ export default function WeatherInfo(props) {
         </div>
         <div className="col-sm-6 current-data mt-4">
           <p>Humidity: {props.weather.humidity}%</p>
-          <p>Wind: {props.weather.wind} km/h</p>
+          <WindDirection
+            direction={props.weather.direction}
+            wind={props.weather.wind}
+          />
         </div>
       </div>
     </div>

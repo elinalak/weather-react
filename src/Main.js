@@ -34,6 +34,7 @@ export default function Main(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
+      direction: response.data.wind.deg,
       icon: response.data.weather[0].icon,
       country: response.data.sys.country,
       city: response.data.name,
