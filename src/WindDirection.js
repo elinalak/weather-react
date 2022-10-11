@@ -20,7 +20,7 @@ export default function WindDirection(props) {
     { name: "N/NW", dig: [330, 340] },
   ];
   console.log(windDirection[0].name);
-  let wind = Math.round((props.direction / 10) * 10);
+  let wind = Math.round(props.direction / 10) * 10;
   let direction = "no";
 
   windDirection.forEach((element) => {
