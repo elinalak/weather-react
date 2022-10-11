@@ -20,7 +20,7 @@ export default function SetDate() {
 
   return (
     <div>
-      <p>Last updated: {currentdate}</p>,
+      <p>Last updated: {currentdate}</p>
       <p>
         {dd}/{mm}/{yyyy}
       </p>
